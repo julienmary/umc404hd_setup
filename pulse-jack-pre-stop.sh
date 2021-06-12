@@ -7,6 +7,14 @@
 # Pre action before stopping Jack
 # This script shall be called by qjackctl
 
+# Killing alsa_in
+PID=$(ps -C alsa_in -o pid= | sed -e 's/ //g')
+if [ "$PID" != "" ];then
+    kill $PID
+else
+    echo 'false'
+fi
+
 # Unbridging Jack Midi and Alsa Midi
 /usr/bin/a2j_control --stop && /usr/bin/a2j_control --dhw  
 
