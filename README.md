@@ -1,4 +1,4 @@
-# Behrringer UMC404HD
+# Behringer UMC404HD
 
 This is the implementation of what is explained at https://wiki.archlinux.org/index.php/PulseAudio/Examples#The_shell_script_method with specific improvment related to the Behringer UMC404HD interface.
 
