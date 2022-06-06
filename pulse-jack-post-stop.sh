@@ -7,4 +7,9 @@
 # Post action after stopping Jack to re-enable PulseAudio
 # This script shall be called by qjackctl
 
-pacmd suspend false
+# We unsuspend PulseAudio (PA suspend method)
+# pacmd suspend false
+
+# We re-enable pulseaudio (PA kill method)
+systemctl --user start pulseaudio.socket
+systemctl --user start pulseaudio.service

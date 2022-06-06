@@ -7,7 +7,11 @@
 # Pre action before starting Jack
 # This script shall be called by qjackctl
 
-# We suspend PulseAudio
-pacmd suspend true
+# We suspend PulseAudio (PA suspend method)
+# pacmd suspend true
+
+# We compeltely disable pulseaudio (PA kill method)
+systemctl --user stop pulseaudio.socket
+systemctl --user stop pulseaudio.service
 
 

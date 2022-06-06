@@ -18,9 +18,13 @@ fi
 # Unbridging Jack Midi and Alsa Midi
 /usr/bin/a2j_control --stop && /usr/bin/a2j_control --dhw  
 
-# Unloading Modules
-SINKID=$(LANG=C pactl list | grep -B 1 "Name: module-jack-sink" | grep Module | sed 's/[^0-9]//g')
-SOURCEID=$(LANG=C pactl list | grep -B 1 "Name: module-jack-source" | grep Module | sed 's/[^0-9]//g')
-pactl unload-module $SINKID
-pactl unload-module $SOURCEID
+# Unloading Modules when pulseaudio is active
+PA_ID="$(ps -C pulseaudio -o pid= | sed -e 's/ //g')"
+if [ "$PA_ID" != "" ];then
+    SINKID=$(LANG=C pactl list | grep -B 1 "Name: module-jack-sink" | grep Module | sed 's/[^0-9]//g')
+    SOURCEID=$(LANG=C pactl list | grep -B 1 "Name: module-jack-source" | grep Module | sed 's/[^0-9]//g')
+    pactl unload-module $SINKID
+    pactl unload-module $SOURCEID
+fi
+if    
 sleep 5
