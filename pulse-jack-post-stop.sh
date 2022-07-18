@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/zsh
 #
 # Author: Julien MARY
 # https://github.com/julienmary/umc404hd_setup
