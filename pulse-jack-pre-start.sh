@@ -10,7 +10,7 @@
 # We suspend PulseAudio (PA suspend method)
 # pacmd suspend true
 
-# We compeltely disable pulseaudio (PA kill method)
+# We completely disable pulseaudio (PA kill method)
 systemctl --user stop pulseaudio.socket
 systemctl --user stop pulseaudio.service
 
